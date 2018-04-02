@@ -31,9 +31,9 @@ train_path=os.path.join(BASE_DIR,'cat_dog_classifier/training_data')
 data = dataset.read_train_sets(train_path, img_size, classes, validation_size=validation_size)
 
 
-print("Complete reading input data. Will Now print a snippet of it")
-print("Number of files in Training-set:\t\t{}".format(len(data.train.labels)))
-print("Number of files in Validation-set:\t{}".format(len(data.valid.labels)))
+#print("Complete reading input data. Will Now print a snippet of it")
+#print("Number of files in Training-set:\t\t{}".format(len(data.train.labels)))
+#print("Number of files in Validation-set:\t{}".format(len(data.valid.labels)))
 
 
 
@@ -172,7 +172,7 @@ def show_progress(epoch, feed_dict_train, feed_dict_validate, val_loss):
     acc = session.run(accuracy, feed_dict=feed_dict_train)
     val_acc = session.run(accuracy, feed_dict=feed_dict_validate)
     msg = "Training Epoch {0} --- Training Accuracy: {1:>6.1%}, Validation Accuracy: {2:>6.1%},  Validation Loss: {3:.3f}"
-    print(msg.format(epoch + 1, acc, val_acc, val_loss))
+    #print(msg.format(epoch + 1, acc, val_acc, val_loss))
 
 total_iterations = 0
 

@@ -11,10 +11,10 @@ def load_train(train_path, image_size, classes):
     img_names = []
     cls = []
 
-    print('Going to read training images')
+    #print('Going to read training images')
     for fields in classes:   
         index = classes.index(fields)
-        print('Now going to read {} files (Index: {})'.format(fields, index))
+        #print('Now going to read {} files (Index: {})'.format(fields, index))
         path = os.path.join(train_path, fields, '*g')
         files = glob.glob(path)
         for fl in files:
@@ -83,7 +83,7 @@ class DataSet(object):
       self._epochs_done += 1
       start = 0
       self._index_in_epoch = batch_size
-      print(batch_size,'sg', self._num_examples)
+      #print(batch_size,'sg', self._num_examples)
       assert batch_size <= self._num_examples
     end = self._index_in_epoch
 
@@ -97,7 +97,7 @@ def read_train_sets(train_path, image_size, classes, validation_size):
 
   images, labels, img_names, cls = load_train(train_path, image_size, classes)
   images, labels, img_names, cls = shuffle(images, labels, img_names, cls)  
-  print("LOG", images.shape)
+  #print("LOG", images.shape)
   if isinstance(validation_size, float):
     validation_size = int(validation_size * images.shape[0])
 
@@ -111,8 +111,8 @@ def read_train_sets(train_path, image_size, classes, validation_size):
   train_img_names = img_names[validation_size:]
   train_cls = cls[validation_size:]
 
-  print("LOG", train_images.shape)
-  print("LOG", validation_images.shape)
+  #print("LOG", train_images.shape)
+  #print("LOG", validation_images.shape)
   data_sets.train = DataSet(train_images, train_labels, train_img_names, train_cls)
   data_sets.valid = DataSet(validation_images, validation_labels, validation_img_names, validation_cls)
 

@@ -46,4 +46,4 @@ y_test_images = np.zeros((1, 2))
 feed_dict_testing = {x: x_batch, y_true: y_test_images}
 result=sess.run(y_pred, feed_dict=feed_dict_testing)
 # result is of this format [probabiliy_of_rose probability_of_sunflower]
-print(result)
+#print(result)
