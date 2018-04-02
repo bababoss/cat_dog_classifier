@@ -23,6 +23,8 @@ num_classes = len(classes)
 validation_size = 0.2
 img_size = 128
 num_channels = 3
+
+
 train_path='training_data'
 
 # We shall load all the training and validation images and labels into memory using openCV and use that during training
@@ -202,4 +204,6 @@ def training(num_iteration):
 
     total_iterations += num_iteration
 
-training(num_iteration=3000)
+if __name__=="__main__":
+
+    training(num_iteration=3000)
