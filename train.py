@@ -1,4 +1,4 @@
-import dataset
+from . import dataset
 import tensorflow as tf
 import time
 from datetime import timedelta
@@ -24,8 +24,8 @@ validation_size = 0.2
 img_size = 128
 num_channels = 3
 
-
-train_path='training_data'
+BASE_DIR = os.path.dirname(os.path.abspath('__file__'))
+train_path=os.path.join(BASE_DIR,'cat_dog_classifier/training_data')
 
 # We shall load all the training and validation images and labels into memory using openCV and use that during training
 data = dataset.read_train_sets(train_path, img_size, classes, validation_size=validation_size)
@@ -179,7 +179,6 @@ total_iterations = 0
 saver = tf.train.Saver()
 def training(num_iteration):
     global total_iterations
-    current_dir = os.path.dirname(os.path.abspath('__file__'))
     for i in range(total_iterations,
                    total_iterations + num_iteration):
 
@@ -199,7 +198,7 @@ def training(num_iteration):
             epoch = int(i / int(data.train.num_examples/batch_size))    
             
             show_progress(epoch, feed_dict_tr, feed_dict_val, val_loss)
-            saver.save(session, os.path.join('dogs-cats-model'))
+            saver.save(session, os.path.join(BASE_DIR,'cat_dog_classifier/trained_model/dogs-cats-model'))
 
 
     total_iterations += num_iteration

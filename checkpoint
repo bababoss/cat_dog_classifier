@@ -1,0 +1,2 @@
+model_checkpoint_path: "/home/cogknit/project/cat_dog_classifier/dogs-cats-model"
+all_model_checkpoint_paths: "/home/cogknit/project/cat_dog_classifier/dogs-cats-model"
